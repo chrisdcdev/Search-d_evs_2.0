@@ -2,19 +2,30 @@ import { Box } from "@chakra-ui/react";
 import { TitleProps } from "../../model/Title";
 
 
-export default function Title({ title }: TitleProps) {
+export default function Title({ title, sufix,font }: TitleProps) {
     return (
-        <Box
-            textAlign="center"
-            as="h1"
-            fontFamily="heading"
-            bgGradient="linear(to-r, #0069CA,#0069CA,#8C19D2,#8C19D2)"
-            bgClip="text"
-            fontSize="6xl"
-            fontWeight="bold"
-        >
-            {title}
-        </Box>
+        <Box display="flex" columnGap="16px">
+            <Box
+                textAlign="center"
+                as="h1"
+                fontFamily="heading"
+                color="#0069CA"
+                fontSize={{ base: "2xl", md: "4xl", lg: "6xl", xl: `${font}` }}
+                fontWeight="bold"
+            >
+                {title}
+            </Box>
+            <Box
+                textAlign="center"
+                as="h1"
+                fontFamily="heading"
+                color="#8C19D2"
+                fontSize={{ base: "2xl", md: "4xl", lg: "6xl", xl: `${font}`  }}
+                fontWeight="bold"
+            >
+                {sufix}
+            </Box>
 
+        </Box>
     );
 }

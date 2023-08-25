@@ -10,8 +10,13 @@ function InfoBio({ image, content, sufix }: InfoBioProps) {
                     marginT: "25px",
                     marginBottom: "10px"
                 }} columnGap="8px" alignItems="center" css={() => ({
-                    ":nth-child(2)": {
-                        marginBottom: "24px",
+                    "::nth-of-type(2)": {
+                        base: {
+                            marginBottom: "0px",
+                        }, 
+                        md: {
+                            marginBottom: "24px",
+                        }
                     },
                 })}>
                     <span ><Image width="24px" src={image} alt="Icon group" /></span>
