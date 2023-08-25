@@ -10,7 +10,7 @@ export default function Title({ title, sufix,font }: TitleProps) {
                 as="h1"
                 fontFamily="heading"
                 color="#0069CA"
-                fontSize={{ base: "2xl", md: "4xl", lg: "6xl", xl: `${font}` }}
+                fontSize={{ base: "2xl", md: "4xl", lg: "3xl", xl: `${font}` }}
                 fontWeight="bold"
             >
                 {title}
@@ -20,7 +20,7 @@ export default function Title({ title, sufix,font }: TitleProps) {
                 as="h1"
                 fontFamily="heading"
                 color="#8C19D2"
-                fontSize={{ base: "2xl", md: "4xl", lg: "6xl", xl: `${font}`  }}
+                fontSize={{ base: "2xl", md: "4xl", lg: "3xl", xl: `${font}`  }}
                 fontWeight="bold"
             >
                 {sufix}
