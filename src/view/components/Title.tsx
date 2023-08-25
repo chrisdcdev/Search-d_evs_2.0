@@ -7,7 +7,7 @@ export default function Title({ title }: TitleProps) {
         <Box
             textAlign="center"
             as="h1"
-            fontFamily="Nunito"
+            fontFamily="heading"
             bgGradient="linear(to-r, #0069CA,#0069CA,#8C19D2,#8C19D2)"
             bgClip="text"
             fontSize="6xl"

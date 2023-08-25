@@ -1,5 +1,5 @@
 import { Button } from '@chakra-ui/react';
-
+import { Link } from "react-router-dom"
 interface ButtonProps {
     title: string;
     search: () => void;
@@ -7,6 +7,8 @@ interface ButtonProps {
 
 export default function ButtonSearch({ title, search }: ButtonProps) {
     return (
-                <Button marginLeft="-30px" colorScheme="purple" size="lg" width={{ base: "100px", md: "200px", lg: "250px" }} onClick={() => search()}>{title}</Button>
+        <Link to={"/profile"}>
+            <Button marginLeft="-30px" colorScheme="purple" size="lg" width={{ base: "200px", md: "200px", lg: "250px" }} onClick={() => search()}>{title}</Button>
+        </Link>
     );
 }

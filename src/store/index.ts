@@ -1,27 +1,25 @@
 export interface AppState {
-  teste: string;
+  user: string;
 }
 
-// store.ts (configuração da loja Redux)
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  teste: 'teste',
+  user: null,
 };
 
-const reduxState = createSlice({
-  name: 'states',
+const userSlice = createSlice({
+  name: 'user',
   initialState,
   reducers: {
-    testee: (state) => {
-      console.log(state);
+    setUser: (state, action) => {
+      state.user = action.payload;
     },
   },
 });
 
-export const { testee } = reduxState.actions;
-
+export const { setUser } = userSlice.actions;
 
 export const store = configureStore({
-  reducer: reduxState.reducer,
+  reducer: userSlice.reducer,
 });
