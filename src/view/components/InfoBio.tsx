@@ -13,7 +13,7 @@ function InfoBio({ image, content, sufix }: InfoBioProps) {
                     "::nth-of-type(2)": {
                         base: {
                             marginBottom: "0px",
-                        }, 
+                        },
                         md: {
                             marginBottom: "24px",
                         }
