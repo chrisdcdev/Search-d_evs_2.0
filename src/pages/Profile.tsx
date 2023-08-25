@@ -32,7 +32,7 @@ export default function Profile() {
 
   if (isLoading) {
     return (
-      <Box display="flex" backgroundColor="#DDD" flexDirection="row" width="100%" justifyContent="space-around" padding="10px" boxSizing="border-box" >
+      <Box display="flex" backgroundColor="#DDD" flexDirection="row" width="100%"  padding="10px" boxSizing="border-box" >
         <Box >
           <Stack>
             <Skeleton height='465px' width="280px" />

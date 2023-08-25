@@ -4,7 +4,7 @@ import { TitleProps } from "../../model/Title";
 
 export default function Title({ title, sufix,font }: TitleProps) {
     return (
-        <Box display="flex" columnGap="16px">
+        <Box display="flex" columnGap="5px">
             <Box
                 textAlign="center"
                 as="h1"
