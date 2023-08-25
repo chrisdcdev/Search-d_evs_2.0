@@ -35,7 +35,7 @@ const Search = () => {
                 <ToastContainer />
                 <InputGroup >
                     <InputLeftElement pointerEvents='none' >
-                        <Search2Icon position="absolute" top="12px" color='gray.300' width="10px" fontSize='x-large' />
+                        <Search2Icon position="absolute" top="12px" color='gray.300' width="20px" fontSize='x-large' />
                     </InputLeftElement>
                     <Input type="text" placeholder="Search" size="lg" width={{ base: "100%", md: "350px", lg: "550px", "sm": "300px" }} name="name" id="name" onChange={(event: ChangeEvent<HTMLInputElement>) => { setUsername(event.target.value) }} />
                 </InputGroup>
