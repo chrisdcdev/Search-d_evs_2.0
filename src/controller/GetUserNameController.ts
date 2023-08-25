@@ -9,6 +9,6 @@ export const GetByUserName = (name:string) => {
       
         return response.data;
     }).catch(() => {
-        toast.error("Usuario no encontrado")
+        toast.error("Usuário não encontrado")
     })
 }

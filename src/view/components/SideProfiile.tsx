@@ -26,9 +26,9 @@ function SideProfile({
 }: UserProfile) {
 
     return (
-        <Box display="flex" flexDirection="column" >
+        <Box display="flex" flexDirection="column" padding={{base: "0px", md:"15px"}} boxSizing='border-box' >
 
-            <Box display={{ base: "hidden" ,md: "flex",  }} backgroundColor={{base: "#EADDFF99", md:"#FCFCFC"}} flexDirection="column" justifyContent="flex-start" alignItems="flex-start">
+            <Box display={{ base: "hidden" ,md: "flex",  }}  backgroundColor={{base: "#EADDFF99", md:"#FCFCFC"}} flexDirection="column" justifyContent="flex-start" alignItems="flex-start">
                 <Link display="flex" alignItems="center"  href="/" _hover={{
                     textDecoration: "none"
                 }}>
@@ -36,7 +36,7 @@ function SideProfile({
                     <Title title="Search" sufix="d_evs" font="24px" />
                 </Link>
             </Box>
-            <Box display="flex"  backgroundColor={{"xl":"#FCFCFC", "md": "#FCFCFC", "sm":"#EADDFF99"}} flexDirection={{ "xl": "row", "md": "row", "sm": "column", "base": "column" }} borderEndRadius="4px" width={{ 'xl': "100%", 'lg': "100%" }} justifyContent={{ "xl": "space-around", "md": "space-around", "sm": "center" }} paddingTop={{ base: "none", md: "10px" }} boxSizing="border-box" >
+            <Box display="flex"  backgroundColor={{"xl":"#FCFCFC", "md": "#FCFCFC", "sm":"#EADDFF99"}} columnGap="50px" flexDirection={{ "xl": "row", "md": "row", "sm": "column", "base": "column" }} borderEndRadius="4px" width={{ 'xl': "100%", 'lg': "100%" }} justifyContent={{ "xl": "flex", "md": "flex", "sm": "center" }} paddingTop={{ base: "none", md: "10px" }} boxSizing="border-box" >
 
                 <Box>
                     <Box width={{ "xl": "280px", "md": "280px" }} borderRadius="4px" paddingLeft="5px" paddingRight="5px" display="flex" alignItems="flex-start" flexDirection="column" height="465px" backgroundColor={{ "xl": "#FFF", "md": "#FFF", "sm": "#EADDFF99", "base": "#EADDFF99" }}>

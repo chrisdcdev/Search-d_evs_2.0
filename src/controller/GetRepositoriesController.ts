@@ -6,7 +6,7 @@ export const GetByUserRepositories = (name:string) => {
         const data = response.sort((
             initialCountStar : { stargazers_count: number }, 
             compareCountStar : { stargazers_count: number }) => {
-            return initialCountStar.stargazers_count - compareCountStar.stargazers_count;
+            return compareCountStar.stargazers_count - initialCountStar.stargazers_count;
           });
           
         return data;

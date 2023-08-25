@@ -7,7 +7,10 @@ function InfoBioLink({ image, content, sufix }: InfoBioLinkProps) {
             {content === null || content === "" ? <></> :
                 <Box display="flex" width="250px" marginBottom="8px" columnGap="8px" alignItems="center">
                     <span ><Image width="24px" src={image} alt="Icon group" /></span>
-                    <Text fontSize="14px" color="#4A5568" fontFamily="body" fontWeight="400">
+                    <Text fontSize="14px" color="#4A5568" fontFamily="body" fontWeight="400" css={{
+                        wordBreak: "break-word"
+                    }}>
+                        
                         {
                             image?.includes("Twitter") ? (
                                 <Link href={`https://twitter.com/${content}`} isExternal>
