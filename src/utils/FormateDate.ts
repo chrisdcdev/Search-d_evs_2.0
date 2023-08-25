@@ -4,7 +4,6 @@ export function DateFormate(date: string) {
     const diferencaEmMilissegundos: number = hoje.getTime() - updatedAt.getTime();
     const diferencaEmDias: number = Math.floor(diferencaEmMilissegundos / (1000 * 60 * 60 * 24));
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const anos: number = Math.floor(diferencaEmDias / 365);
     const diasRestantes: number = diferencaEmDias % 365;
     if(diasRestantes === 0){
         return  `Atualizado hoje`
