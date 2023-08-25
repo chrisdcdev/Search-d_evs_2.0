@@ -28,7 +28,7 @@ function SideProfile({
     return (
         <Box display="flex" flexDirection="column" >
 
-            <Box marginLeft="10px" display={{ "sm": "none", "base": "hidden","md": "flex",  }} backgroundColor="#FCFCFC" flexDirection="column" justifyContent="flex-start" alignItems="flex-start">
+            <Box display={{ base: "hidden" ,md: "flex",  }} backgroundColor={{base: "#EADDFF99", md:"#FCFCFC"}} flexDirection="column" justifyContent="flex-start" alignItems="flex-start">
                 <Link display="flex" alignItems="center"  href="/" _hover={{
                     textDecoration: "none"
                 }}>
