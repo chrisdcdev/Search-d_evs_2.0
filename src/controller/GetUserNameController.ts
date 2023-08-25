@@ -1,10 +1,10 @@
-import { toast } from "react-toastify"
-import { getUserName } from "../services/api/axios"
-import { User } from "../model/User";
+import { toast } from 'react-toastify';
+
+import { getUserName } from '../services/api/axios';
 
 
 
-export const GetByUserName = ({name}:User) => {
+export const GetByUserName = (name:string) => {
     return getUserName.get(`${name}`).then((response) => {
       
         return response.data;

@@ -1,31 +1,48 @@
+import { Box, Skeleton, Stack } from '@chakra-ui/react';
 import { useQuery } from 'react-query';
 import { useSelector } from 'react-redux';
+
 import { GetByUserName } from '../controller/GetUserNameController';
-import { AppState } from '../store';
-import { Box } from '@chakra-ui/react';
-import SideProfile from '../view/components/SideProfiile';
 import { UserProfile } from '../model/UserProfile';
-
+import { AppState, changeStatus } from '../store';
+import SideProfile from '../view/components/SideProfiile';
+import { useDispatch } from 'react-redux';
 export default function Profile() {
-  const user = useSelector((state: AppState) => state.user);
 
+  const dispatch = useDispatch();
+  function changeStatusUserInfo() {
+    dispatch(changeStatus(true))
+  }
+
+  const user = useSelector((state: AppState) => state.user);
   const GetDataForByUserName = async () => {
     try {
-      const getForUser = { name: user };
-      const data = await GetByUserName(getForUser);
-      return data || {}; // Retorna um objeto vazio se data for null ou undefined
+      const data = await GetByUserName(user);
+      changeStatusUserInfo();
+      return data || {};
     } catch (error) {
-      console.log("error:", error);
-      return {}; // Retorna um objeto vazio em caso de erro
+      return {};
     }
   };
+
 
   const { data, isLoading, error } = useQuery('data', GetDataForByUserName, {
     enabled: !!user,
   });
 
   if (isLoading) {
-    return <div>Carregando...</div>;
+    return (
+      <Box display="flex" backgroundColor="#DDD" flexDirection="row" width="100%" justifyContent="space-around" padding="10px" boxSizing="border-box" >
+        <Box >
+          <Stack>
+            <Skeleton height='465px' width="280px" />
+          </Stack>
+          <Stack>
+            <Skeleton height='800px' width="904px" />
+          </Stack>
+        </Box>
+      </Box>
+    )
   }
 
   if (error) {
@@ -33,15 +50,33 @@ export default function Profile() {
   }
 
   if (!data) {
-    return null; // Ou qualquer outra ação apropriada
+
+    return <div>
+      <Box
+        position="absolute"
+        top="50%"
+        left="50%"
+        transform="translate(-50%, -50%)"
+        textAlign="center"
+        as="h1"
+        fontFamily="heading"
+        bgGradient="linear(to-r, #0069CA, #0069CA, #8C19D2, #8C19D2)"
+        bgClip="text"
+        fontSize="6xl"
+        fontWeight="bold"
+      >
+        Sem dados para exibir.
+      </Box>
+    </div>;
   }
+
 
   const content = [data];
 
   return (
-    <Box>
+    <Box >
       {content?.map((data: UserProfile) => {
-        const avatarUrl = data.avatar_url || ''; 
+        const avatarUrl = data.avatar_url || '';
         return (
           <SideProfile
             key={data.login}

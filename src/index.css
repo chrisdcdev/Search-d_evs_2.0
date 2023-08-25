@@ -19,5 +19,5 @@ html {
   height: 100vh;
 }
 html,body {
-  background-color: #FCFCFC;
+  background-color: #FCFCFC !important;
 }

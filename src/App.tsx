@@ -1,10 +1,16 @@
+import { Box } from '@chakra-ui/react';
 import Home from './pages/Home';
-import { Container } from './styles/styles';
 
 export default function App() {
   return (
-    <Container>
-      <Home/>
-    </Container>
+    <Box display="flex" justifyContent="center" alignItems="center" height="100vh" width="100vw" backgroundColor="#FCFCFC">
+      <Home />
+    </Box>
   )
 }
+/* display: flex;
+justify - content: center;
+align - items: center;
+height: 100vh;
+width: 100vw;
+ */
