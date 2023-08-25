@@ -13,23 +13,35 @@ import theme from './fonts/theme.ts'
 import Profile from './pages/Profile.tsx'
 import { Provider } from 'react-redux'
 import { store } from './store/index.ts'
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <div><App /></div>,
   },
   {
-    path: "/profile/:user",
+    path: "/profile",
     element: <div><Profile /></div>,
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <ChakraProvider theme={theme} >
-      <Provider store={store}>
-        <RouterProvider router={router} />
-      </Provider>
-    </ChakraProvider>
-  </React.StrictMode>,
+  <QueryClientProvider client={queryClient}>
+    <Provider store={store}>
+      <React.StrictMode>
+        <ChakraProvider theme={theme} >
+          <RouterProvider router={router} />
+        </ChakraProvider>
+      </React.StrictMode>,
+    </Provider>
+  </QueryClientProvider>
 )

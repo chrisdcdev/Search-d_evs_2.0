@@ -2,41 +2,43 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { Search2Icon } from '@chakra-ui/icons';
 import { Box, Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
-import Button from './Button';
-//import Result from './Result';
+
 import { GetByUserName } from '../../controller/GetUserNameController';
-import { User } from '../../model/User';
+import { setUser } from '../../store';
+import Button from './Button';
 
 const Search = () => {
+    useEffect(()=> {
+        dispatch(setUser(""))
+    },[])
+
     const [userName, setUsername] = useState<string>("");
-    const [result, setResult] = useState<{ login: string }[]>([]);
+    const dispatch = useDispatch();
     const getDataForUserName = async () => {
         try {
             const user = { name: userName }
             const data = await GetByUserName(user);
-            console.log(data)
-            console.log(result)
-            redirectToProfile({name: userName});
-            setResult(data);
+            if (data) {
+                dispatch(setUser(data.login))
+
+            }
         } catch (error) {
-            console.log(error);
+            console.log("error");
         }
     }
 
-    const redirectToProfile = ({name}:User) => {
-        window.location.href = `/profile/${name}`;
-    }
     return (
-        <Box>
-            <Box display="flex" columnGap="-10px">
-                <ToastContainer />
+        <Box alignItems="center" justifyContent="center">
+            <Box display="flex" flexDirection={{base:"column", md:"column", lg:"row"}} alignItems="center" rowGap="16px" columnGap="-10px">
+                <ToastContainer/>
                 <InputGroup >
-                    <InputLeftElement pointerEvents='none'>
-                        <Search2Icon color='gray.300' width="2xl" fontSize='x-large' />
+                    <InputLeftElement pointerEvents='none' >
+                        <Search2Icon position="absolute" top="12px" color='gray.300' width="2xl" fontSize='x-large' />
                     </InputLeftElement>
-                    <Input type="text" placeholder="Search" size="lg" width={{ base: "250px", md: "300px", lg: "550px" }} name="name" id="name" onChange={(event: ChangeEvent<HTMLInputElement>) => { setUsername(event.target.value) }} />
+                    <Input type="text" placeholder="Search" size="lg" width={{ base: "350px", md: "350px", lg: "550px" }} name="name" id="name" onChange={(event: ChangeEvent<HTMLInputElement>) => { setUsername(event.target.value) }} />
                 </InputGroup>
                 <Button title={"Search"} search={() => getDataForUserName()} />
             </Box>
